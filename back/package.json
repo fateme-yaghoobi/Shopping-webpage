@@ -1,0 +1,23 @@
+{
+  "name": "shopping-webpage-back",
+  "version": "1.0.0",
+  "description": "final team work project of the Web course 2025",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fateme-yaghoobi/Shopping-webpage.git"
+  },
+  "author": "Zahra Yaghoubi and Fateme Yaghoubi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fateme-yaghoobi/Shopping-webpage/issues"
+  },
+  "homepage": "https://github.com/fateme-yaghoobi/Shopping-webpage#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^5.1.0"
+  }
+}

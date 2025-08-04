@@ -9,9 +9,12 @@ app.use(express.json());
 
 //products list
 const products = [
-  { id: 1, name: "T-shirt", price: 20, img_url:"", },
-  { id: 2, name: "Shoes", price: 50, img_url:"", },
-  { id: 3, name: "Hat", price: 15, img_url:"", }
+  { id: 1, name: "مینی اسکارف ابریشم", price:360000, img_url:"https://roosaryshop.com/wp-content/uploads/2025/05/3a.jpeg", },
+  { id: 2, name: "شال نخی منگوله دار", price: 175000, img_url:"https://roosaryshop.com/wp-content/uploads/2025/05/file_0000000043e861fd834c876d4393c402.jpg", },
+  { id: 3, name: "روسری حریر ابریشم", price: 398000, img_url:"https://roosaryshop.com/wp-content/uploads/2025/05/IMG_20250521_151236_331.jpg", },
+  { id: 4, name: "روسری ابریشم طرحدار", price:438000, img_url:"https://roosaryshop.com/wp-content/uploads/2025/05/IMG_20250518_221849_614.jpg", },
+  { id: 5, name: "شال دانتل مزونی", price:562000, img_url:"https://roosaryshop.com/wp-content/uploads/2025/05/IMG_20250524_200347_623.jpg", },
+  { id: 6, name: "شال ویسکوز گل برجسته", price:650000, img_url:"https://roosaryshop.com/wp-content/uploads/2025/05/IMG_20250507_103521_210.jpg", }
 ];
 
 // GET all products

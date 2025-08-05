@@ -38,7 +38,7 @@ function Products() {
                 <span className="text-title">{product.price} تومان</span>
                 <span className="add-to-cart">
                     {
-                        (cart[product.id] && cart[product.id].quantity > 0)?<div class="card__counter">
+                        (cart[product.id] && cart[product.id].quantity > 0)?<div className="card__counter">
                             <button className="incr-btn" onClick={() => removeFromCart(product.id)}>-</button>
                             <div className="product-counter">{cart[product.id]?.quantity||0}</div>
                             <button className="decr-btn" onClick={() => addToCart(product)}>+</button>

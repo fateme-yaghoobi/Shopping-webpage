@@ -69,7 +69,7 @@ svg {
 /*Button*/
 .cart-button {
  border: 1px solid #252525;
- background-color: white;
+ background-color: rgb(211, 207, 207);
  display: flex;
  padding: .3em;
  cursor: pointer;
@@ -119,24 +119,5 @@ svg {
   font-weight: bold;
 }
 
-/* Blue "add to cart" button */
-.cart-button {
-  background-color: #2196f3;
-  color: white;
-  border: none;
-  padding: 0.5rem 1rem;
-  border-radius: 4px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 0.5rem;
-}
 
-/* SVG styling inside the cart button */
-.cart-button svg {
-  width: 20px;
-  height: 20px;
-  fill: white;
-}
 

@@ -1,6 +1,7 @@
 import axios from "axios";
-import React, { useContext, useEffect, useState } from "react";
 import { CartContext } from '../../context/CartContext';
+import { Link } from 'react-router-dom';
+import React, { useContext ,useEffect, useState } from "react";
 import "./products.css";
 
 function Products() {
@@ -26,9 +27,12 @@ function Products() {
     <div className="products-container">
       {products.map((product) => (
         <div className="card" key={product.id || product.name}>
-            <div className="card-img"></div>
+            <div className="card-img">
+                <img src={product.img_url} alt="{product.name}" />
+            </div>
             <div className="card-info">
-                <p className="text-title">{product.name}</p>
+                {/* <p className="text-title">{product.name}</p> */}
+                <Link className="text-title product-name" to={`/${product.id}`}>{product.name}</Link>
             </div>
             <div className="card-footer">
                 <span className="text-title">{product.price} تومان</span>

@@ -31,6 +31,7 @@ app.get('/:id', (req, res) => {
   }
 });
 
+// post for adding a new product
 app.post("/", (req, res) => {
     const { name, price, img} = req.body;
 

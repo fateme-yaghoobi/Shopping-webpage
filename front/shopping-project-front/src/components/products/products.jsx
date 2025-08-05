@@ -28,7 +28,7 @@ function Products() {
       {products.map((product) => (
         <div className="card" key={product.id || product.name}>
             <div className="card-img">
-                <img src={product.img_url} alt="{product.name}" />
+                <img src={product.img_url} alt={product.name} />
             </div>
             <div className="card-info">
                 {/* <p className="text-title">{product.name}</p> */}

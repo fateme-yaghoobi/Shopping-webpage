@@ -18,6 +18,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Products />} />
             <Route path="/cart" element={<CartPage />} />
+            <Route path="/:id" element={<ProductDetails />} />
           </Routes>
       </Router>
     </CartProvider>

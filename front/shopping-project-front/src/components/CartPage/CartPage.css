@@ -1,0 +1,154 @@
+.products_container{
+    width: 100%;
+    margin-top: 100px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5rem;
+    justify-content:center;
+}
+._card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-width: 300px;
+    height: 400px;
+    padding: 1em;
+    background: #f5f5f5;
+    color: #252525;
+    position: relative;
+    overflow: visible;
+    border-radius: .8rem;
+    position: relative;
+}
+
+.card_img {
+ background-color: #ffcaa6;
+ border-radius: 1.5rem;
+ transition: .3s ease;
+}
+
+img{
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    
+}
+
+.card_info {
+ padding-top: 10%;
+}
+
+svg {
+ width: 20px;
+ height: 20px;
+}
+
+.card_footer {
+ width: 100%;
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ padding-top: 10px;
+ border-top: 1px solid #ddd;
+}
+
+/*Text*/
+.text-title {
+ font-weight: 900;
+ font-size: 1.2em;
+ line-height: 1.5;
+}
+
+.text-body {
+ font-size: .9em;
+ padding-bottom: 10px;
+}
+
+.product-name{
+    color: #9f4d15;
+}
+/*Button*/
+.cart-button {
+ border: 1px solid #252525;
+ background-color: rgb(211, 207, 207);
+ display: flex;
+ padding: .3em;
+ cursor: pointer;
+ border-radius: 50px;
+ transition: .3s ease-in-out;
+}
+
+/*Hover*/
+.card-img:hover {
+ transform: translateY(-25%);
+ box-shadow: rgba(226, 196, 63, 0.25) 0px 13px 47px -5px, rgba(180, 71, 71, 0.3) 0px 8px 16px -8px;
+}
+
+.cart-button:hover {
+ border: 1px solid #ffcaa6;
+ background-color: #ffcaa6;
+}
+
+/* Container for the add-to-cart buttons */
+.card__counter {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+/* Plus and minus buttons */
+.incr-btn,
+.decr-btn {
+  padding: 0.3rem 0.6rem;
+  font-size: 1rem;
+  background-color: #fadb41; /* red */
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* Plus button uses a different color */
+.decr-btn {
+  background-color: #54bcf0; /* green */
+}
+
+/* Quantity display text */
+.product-counter {
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+/* From Uiverse.io by vinodjangid07 */ 
+.bin-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 55px;
+  height: 55px;
+  border-radius: 15px;
+  background-color: rgb(255, 95, 95);
+  cursor: pointer;
+  border: 3px solid rgb(255, 201, 201);
+  transition-duration: 0.3s;
+  position: absolute;
+}
+.bin-bottom {
+  width: 15px;
+}
+.bin-top {
+  width: 17px;
+  transform-origin: right;
+  transition-duration: 0.3s;
+}
+.bin-button:hover .bin-top {
+  transform: rotate(45deg);
+}
+.bin-button:hover {
+  background-color: rgb(255, 0, 0);
+}
+.bin-button:active {
+  transform: scale(0.9);
+}

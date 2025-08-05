@@ -1,5 +1,6 @@
 // src/App.js
 // import React, { useEffect, useState } from 'react';
+import "./App.css";
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import ProductCard from './components/ProductCard/ProductCard';
 import ProductDetails from './components/ProductDetails/ProductDetails';
@@ -19,8 +20,8 @@ function App() {
     <CartProvider>
       <Router>
           <nav className="navbar">
-            <Link to="/">All Products</Link>
-            <Link to="/cart">Cart</Link>
+            <Link to="/">محصولات</Link>
+            <Link to="/cart">سبد خرید</Link>
           </nav>
           <Routes>
             <Route path="/" element={<Products />} />

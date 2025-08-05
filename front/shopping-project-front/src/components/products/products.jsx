@@ -16,13 +16,13 @@ function Products() {
       .catch((err) => console.error(err));
   });
 
-  // return (
-  //   <div>
-  //     {products.map((product) => (
+  return (
+    <div>
+      {products.map((product) => (
         
-  //     ))}
-  //   </div>
-  // );
+      ))}
+    </div>
+  );
 }
 
 export default Products;

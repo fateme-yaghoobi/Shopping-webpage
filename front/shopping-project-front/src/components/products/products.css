@@ -87,3 +87,56 @@ svg {
  border: 1px solid #ffcaa6;
  background-color: #ffcaa6;
 }
+
+/* Container for the add-to-cart buttons */
+.card__counter {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+/* Plus and minus buttons */
+.incr-btn,
+.decr-btn {
+  padding: 0.3rem 0.6rem;
+  font-size: 1rem;
+  background-color: #fadb41; /* red */
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* Plus button uses a different color */
+.decr-btn {
+  background-color: #54bcf0; /* green */
+}
+
+/* Quantity display text */
+.product-counter {
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+/* Blue "add to cart" button */
+.cart-button {
+  background-color: #2196f3;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0.5rem;
+}
+
+/* SVG styling inside the cart button */
+.cart-button svg {
+  width: 20px;
+  height: 20px;
+  fill: white;
+}
+

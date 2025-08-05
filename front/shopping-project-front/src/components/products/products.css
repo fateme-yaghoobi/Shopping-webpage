@@ -1,4 +1,7 @@
-/* From Uiverse.io by alexruix */ 
+.products-container{
+    display: flex;
+    
+}
 .card {
  width: 190px;
  height: 254px;

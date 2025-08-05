@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-// import "products.css";
+import "./products.css";
 
 function Products() {
   const [products, setProducts] = useState([]);
@@ -18,7 +18,7 @@ function Products() {
 
 
   return (
-    <div>
+    <div className="products-container">
       {products.map((product) => (
         <div className="card" key={product.id || product.name}>
             <div className="card-img"></div>

@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import "/products.css";
+// import "/products.css";
 
 function Products() {
   const [products, setProducts] = useState([]);
@@ -16,13 +16,13 @@ function Products() {
       .catch((err) => console.error(err));
   });
 
-  return (
-    <div>
-      {products.map((product) => (
+  // return (
+  //   <div>
+  //     {products.map((product) => (
         
-      ))}
-    </div>
-  );
+  //     ))}
+  //   </div>
+  // );
 }
 
 export default Products;

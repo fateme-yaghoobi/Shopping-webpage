@@ -3,7 +3,9 @@ import ProductCard from './components/ProductCard/ProductCard';
 import ProductDetails from './components/ProductDetails/ProductDetails';
 import CartPage from './components/CartPage/CartPage';
 import { CartProvider } from './context/CartContext';
-import Products from './components/products/products'
+import Products from './components/products/products';
+import "./App.css";
+
 
 function App() {
   return (

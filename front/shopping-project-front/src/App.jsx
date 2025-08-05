@@ -5,6 +5,7 @@ import ProductCard from './components/ProductCard/ProductCard';
 import ProductDetails from './components/ProductDetails/ProductDetails';
 import CartPage from './components/CartPage/CartPage';
 import { CartProvider } from './context/CartContext';
+import Products from './components/products/products'
 
 function App() {
   const [products, setProducts] = useState([]);
@@ -18,18 +19,14 @@ function App() {
   return (
     <CartProvider>
       <Router>
-        <nav>
-          <Link to="/">Home</Link> | <Link to="/cart">Cart</Link>
-        </nav>
-        <Routes>
-          <Route path="/" element={
-            <div>
-              {products.map(p => <ProductCard key={p.id} product={p} />)}
-            </div>
-          } />
-          <Route path="/product/:id" element={<ProductDetails />} />
-          <Route path="/cart" element={<CartPage />} />
-        </Routes>
+          <nav className="navbar">
+            <Link to="/">All Products</Link>
+            <Link to="/cart">Cart</Link>
+          </nav>
+          <Routes>
+            <Route path="/" element={<Products />} />
+            <Route path="/cart" element={<CartPage />} />
+          </Routes>
       </Router>
     </CartProvider>
   );

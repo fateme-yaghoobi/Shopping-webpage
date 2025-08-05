@@ -14,7 +14,7 @@ function Products() {
         console.log(res.data);
         })
         .catch((err) => console.error(err));
-}, []);  // <-- here
+}, []);
 
 
   return (

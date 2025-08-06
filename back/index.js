@@ -72,29 +72,31 @@ app.get('/:id', (req, res) => {
 
 // post for adding a new product
 app.post("/", (req, res) => {
-    const { name, price} = req.body;
+    const { name, price, description } = req.body;
 
     // Validate request
-    if (!name || typeof name !== 'string' || name.trim()    === '') {
+    if (!name || typeof name !== 'string' || name.trim() === '') {
         return res.status(400).json({ error: "Valid product name is required" });
     }
-    if (!price || typeof price !== 'number' || instructor.trim() === '') {
+    if (!price || isNaN(price)) {
+        return res.status(400).json({ error: "Valid price is required" });
+    }
+    if (!description || typeof description !== 'string' || description.trim() === '') {
         return res.status(400).json({ error: "Valid price is required" });
     }
 
-    // Create new course object with unique ID
-    const newCourse = {
-    id: courses.length + 1,
-    name,
-    instructor,
+    // Create new product object with unique ID
+    const newProduct = {
+        id: products.length + 1,
+        name,
+        price, 
     };
 
-    // Add course to array
-    courses.push(newCourse);
+    // Add product to array
+    products.push(newProduct);
 
-    res
-    .status(201)
-    .json({ message: "Course added successfully", course: newCourse });
+    res.status(201).json({ message: "product added successfully", product: newProduct });
 });
+
 
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

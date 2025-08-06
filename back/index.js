@@ -52,6 +52,52 @@ const products = [
 
 ];
 
+//cart of products
+const cart={};
+
+// Get current cart
+app.get('/api/cart', (req, res) => {
+  res.json(cart);
+});
+
+// Add to cart
+app.post('/api/cart/add', (req, res) => {
+  const product = req.body;
+  if (!product?.id) return res.status(400).json({ message: 'Invalid product' });
+
+  if (cart[product.id]) {
+    cart[product.id].quantity += 1;
+  } else {
+    cart[product.id] = { ...product, quantity: 1 };
+  }
+
+  res.json(cart);
+});
+
+// Remove from cart
+app.post('/api/cart/remove', (req, res) => {
+  const { id } = req.body;
+  if (!cart[id]) return res.json(cart);
+
+  if (cart[id].quantity > 1) {
+    cart[id].quantity -= 1;
+  } else {
+    delete cart[id];
+  }
+
+  res.json(cart);
+});
+
+// Remove entire product from cart
+app.post('/api/cart/remove-all', (req, res) => {
+  const { id } = req.body;
+  if (cart[id]) {
+    delete cart[id];
+  }
+  res.json(cart);
+});
+
+
 // GET all products
 app.get('/', (req, res) => {
   res.json(products);
@@ -67,33 +113,6 @@ app.get('/:id', (req, res) => {
   } else {
     res.status(404).json({ error: 'Product not found' });
   }
-});
-
-// post for adding a new product
-app.post("/", (req, res) => {
-    const { name, price} = req.body;
-
-    // Validate request
-    if (!name || typeof name !== 'string' || name.trim()    === '') {
-        return res.status(400).json({ error: "Valid product name is required" });
-    }
-    if (!price || typeof price !== 'number' || instructor.trim() === '') {
-        return res.status(400).json({ error: "Valid price is required" });
-    }
-
-    // Create new course object with unique ID
-    const newCourse = {
-    id: courses.length + 1,
-    name,
-    instructor,
-    };
-
-    // Add course to array
-    courses.push(newCourse);
-
-    res
-    .status(201)
-    .json({ message: "Course added successfully", course: newCourse });
 });
 
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

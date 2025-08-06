@@ -1,42 +1,57 @@
-import React, { createContext, useState } from 'react';
+// src/context/CartContext.jsx
+import React, { createContext, useContext, useEffect, useState } from 'react';
 
 export const CartContext = createContext();
 
 export const CartProvider = ({ children }) => {
   const [cart, setCart] = useState({});
 
+  // Fetch cart on mount
+  useEffect(() => {
+    fetch('http://localhost:3000/api/cart')
+      .then(res => res.json())
+      .then(data => setCart(data))
+      .catch(err => console.error('Error fetching cart:', err));
+  }, []);
+
   const addToCart = (product) => {
-    setCart(prev => ({
-      ...prev,
-      [product.id]: { ...product, quantity: (prev[product.id]?.quantity || 0) + 1 }
-    }));
+    fetch('http://localhost:3000/api/cart/add', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(product),
+    })
+      .then(res => res.json())
+      .then(data => setCart(data))
+      .catch(err => console.error('Add to cart error:', err));
   };
 
   const removeFromCart = (productId) => {
-    setCart(prev => {
-      const updated = { ...prev };
-      if (updated[productId]) {
-        if (updated[productId].quantity > 1) {
-          updated[productId].quantity -= 1;
-        } else {
-          delete updated[productId];
-        }
-      }
-      return updated;
-    });
+    fetch('http://localhost:3000/api/cart/remove', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ id: productId }),
+    })
+      .then(res => res.json())
+      .then(data => setCart(data))
+      .catch(err => console.error('Remove from cart error:', err));
   };
 
-  const removePermanently =(productId) => {
-    setCart(prev => {
-      const updated = { ...prev };
-      delete updated[productId];
-      return updated;
-    });
+  const removePermanently = (productId) => {
+    fetch('http://localhost:3000/api/cart/remove-all', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ id: productId }),
+    })
+      .then(res => res.json())
+      .then(data => setCart(data))
+      .catch(err => console.error('Permanent removal error:', err));
   };
 
   return (
-    <CartContext.Provider value={{ cart, addToCart, removeFromCart,removePermanently }}>
+    <CartContext.Provider value={{ cart, addToCart, removeFromCart, removePermanently }}>
       {children}
     </CartContext.Provider>
   );
 };
+
+export const useCart = () => useContext(CartContext);

@@ -72,17 +72,7 @@ app.get('/:id', (req, res) => {
 
 // post for adding a new product
 app.post("/", (req, res) => {
-    const { name, price, img} = req.body;
-
-    function isValidImageUrl(url) {
-      try {
-        const parsedUrl = new URL(url);
-        // Basic check for image file extensions
-        return /\.(jpg|jpeg|png|gif|bmp|webp|svg)$/i.test(parsedUrl.pathname);
-      } catch {
-        return false;
-      }
-    }
+    const { name, price} = req.body;
 
     // Validate request
     if (!name || typeof name !== 'string' || name.trim()    === '') {
@@ -90,9 +80,6 @@ app.post("/", (req, res) => {
     }
     if (!price || typeof price !== 'number' || instructor.trim() === '') {
         return res.status(400).json({ error: "Valid price is required" });
-    }
-    if (!imageUrl || !isValidImageUrl(imageUrl)) {
-    return res.status(400).json({ error: 'Invalid image URL' });
     }
 
     // Create new course object with unique ID

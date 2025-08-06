@@ -26,8 +26,16 @@ export const CartProvider = ({ children }) => {
     });
   };
 
+  const removePermanently =(productId) => {
+    setCart(prev => {
+      const updated = { ...prev };
+      delete updated[productId];
+      return updated;
+    });
+  };
+
   return (
-    <CartContext.Provider value={{ cart, addToCart, removeFromCart }}>
+    <CartContext.Provider value={{ cart, addToCart, removeFromCart,removePermanently }}>
       {children}
     </CartContext.Provider>
   );

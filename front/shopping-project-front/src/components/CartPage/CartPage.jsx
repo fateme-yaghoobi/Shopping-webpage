@@ -98,7 +98,7 @@ const CartPage = () => {
       {items.length === 0 ? (
         <div></div>
       ) : (
-        <h1>قیمت کل: {getTotalPrice()} تومان</h1>
+        <h3 id="total-price">قیمت کل: {getTotalPrice()} تومان</h3>
       )}
     </>
   );

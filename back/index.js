@@ -115,8 +115,6 @@ app.get('/:id', (req, res) => {
   }
 });
 
-<<<<<<< HEAD
-=======
 // post for adding a new product
 app.post("/", (req, res) => {
     const { name, price, description } = req.body;
@@ -137,6 +135,7 @@ app.post("/", (req, res) => {
         id: products.length + 1,
         name,
         price, 
+        description,
     };
 
     // Add product to array
@@ -146,5 +145,4 @@ app.post("/", (req, res) => {
 });
 
 
->>>>>>> 38b1d3e3936f825d3217ace6fd557a7218250ea4
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

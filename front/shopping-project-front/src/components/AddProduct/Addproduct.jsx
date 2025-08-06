@@ -76,7 +76,7 @@ function AddProduct() {
         </div>
 
         <div>
-          <input type="submit" id="submit" value={"submit"} />
+          <input type="submit" id="submit" value={"اضافه کردن محصول"}/>
         </div>
       </form>
     </>

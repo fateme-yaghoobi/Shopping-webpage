@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import "./AddProduct.css"
 
 function AddProduct() {
   const [productName, setproductName] = useState("");
@@ -9,58 +10,73 @@ function AddProduct() {
     <>
       <form
         onSubmit={(event) => {
-          alert(
-          "کالای موردنظر با موفقیت به لیست محصولات افزوده شد."
-          );
-          event.preventDefault();
-          axios
-            .post("http://localhost:3000/", {
-              name: productName,
-              price,
-              description,
-            })
-            .then((res) => console.log(res.data)) //if successful
-            .catch((err) => console.error(err)); // if failed
+            event.preventDefault();
+            axios
+                .post("http://localhost:3000/", {
+                    name: productName,
+                    price,
+                    description,
+                })
+                .then((res) => {
+                    alert("کالای موردنظر با موفقیت به لیست محصولات افزوده شد.");
+                    console.log(res.data); // if successful
+                })
+                .catch((err) => {
+                    if (err.response && err.response.data && err.response.data.error) {
+                        alert(err.response.data.error); // Display server error message
+                    } else {
+                        alert("An unexpected error occurred."); // General error message
+                    }
+                    console.error(err); // Log the error for debugging
+                });
         }}
       >
-        <>
+
+        <div className="container">
           <label htmlFor="productName">
             نام محصول
           </label>
           <input
             type="text"
             id="productName"
+            required
             onChange={(event) => {
               setproductName(event.target.value);
             }}
           />
-        </>
-        <div>
+        </div>
+
+        <div className="container">
           <label htmlFor="price">
             قیمت محصول
           </label>
           <input
-            type="text"
+            type="number"
             id="price"
+            required
             onChange={(event) => {
               setPrice(event.target.value);
             }}
           />
         </div>
-        <div>
-          <label htmlFor="description">
+
+        <div className="container">
+          <label htmlFor="description" id="textArea">
            توضیحات محصول
           </label>
-          <input
-            type="text"
+          <textarea
             id="description"
+            required
+            rows={5}
+            cols={200}
             onChange={(event) => {
               setDescription(event.target.value);
             }}
           />
         </div>
+
         <div>
-          <input type="submit" value={"submit"} />
+          <input type="submit" id="submit" value={"submit"} />
         </div>
       </form>
     </>

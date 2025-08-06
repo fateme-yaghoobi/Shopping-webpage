@@ -27,11 +27,10 @@ function Products() {
     <div className="products-container">
       {products.map((product) => (
         <div className="card" key={product.id || product.name}>
-            <div className="card-img">
-                <img src={product.img_url} alt={product.name} />
-            </div>
+            <Link className="card-img" to={`/${product.id}`}>
+              <img src={product.img_url} alt={product.name} />
+            </Link>
             <div className="card-info">
-                {/* <p className="text-title">{product.name}</p> */}
                 <Link className="text-title product-name" to={`/${product.id}`}>{product.name}</Link>
             </div>
             <div className="card-footer">

@@ -115,4 +115,36 @@ app.get('/:id', (req, res) => {
   }
 });
 
+<<<<<<< HEAD
+=======
+// post for adding a new product
+app.post("/", (req, res) => {
+    const { name, price, description } = req.body;
+
+    // Validate request
+    if (!name || typeof name !== 'string' || name.trim() === '') {
+        return res.status(400).json({ error: "Valid product name is required" });
+    }
+    if (!price || isNaN(price)) {
+        return res.status(400).json({ error: "Valid price is required" });
+    }
+    if (!description || typeof description !== 'string' || description.trim() === '') {
+        return res.status(400).json({ error: "Valid price is required" });
+    }
+
+    // Create new product object with unique ID
+    const newProduct = {
+        id: products.length + 1,
+        name,
+        price, 
+    };
+
+    // Add product to array
+    products.push(newProduct);
+
+    res.status(201).json({ message: "product added successfully", product: newProduct });
+});
+
+
+>>>>>>> 38b1d3e3936f825d3217ace6fd557a7218250ea4
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
